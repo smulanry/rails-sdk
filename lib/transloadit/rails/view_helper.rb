@@ -26,13 +26,9 @@ module Transloadit::Rails::ViewHelper
 
     javascript_tag %{
       jQuery(function($) {
-        var script = '//assets.transloadit.com/js/jquery.transloadit2-#{version}.js';
-
-        $.getScript(script, function() {
-          $('##{id}')
-            .attr('enctype', 'multipart/form-data')
-            .transloadit(#{options_to_json(options)});
-        });
+        $('##{id}')
+          .attr('enctype', 'multipart/form-data')
+          .transloadit(#{options_to_json(options)});
       });
     }
   end
